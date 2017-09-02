@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><!-- Head of the Root -->
+<head> <!-- child sub root of the html tag as head tag  -->
+	<meta charset="UTF-8">
+	<title>Student result</title>
+</head>
+<body>
+<!-- it is a body tag-->
+	  <script>
+    function calculate()
+    {
+        var mark1,mark2,mark3,avg = 0,total = 0,grade = "";
+        mark1 = parseInt(document.form1.S1.value);
+        mark2 = parseInt(document.form1.S2.value);
+        mark3 = parseInt(document.form1.S3.value);
+        total = mark1+mark2+mark3;
+        avg = total/3;
+        if(isNaN(mark1)||isNaN(mark2)||isNaN(mark3))
+        {
+          alert('Please enter the marks correctly')
+          return;
+        }
+        if( mark1 < 35 || mark2 < 35 || mark3 < 35)
+        {
+            grade = "Fail";
+        }
+        else if(avg >= 80)
+        {
+            grade = "A+";
+        }
+        else if(avg >= 60)
+        {
+            grade = "A";
+        }
+        else if(avg >= 50)
+        {
+            grade = "B";
+        }
+        else if(avg >=35 )
+        {
+            grade = "C";
+        }
+        document.getElementById('Output').innerHTML="Result <br>"+"Total:"+total+"   Average:"+avg+"  Grade:"+grade;
+        
+    }
+	  </script>
+    <form name = "form1">
+        <table border = "1">
+            <tr>
+                <td> Student Name</td>
+                <td><input type = "text"  /></td>
+            </tr>
+            <tr>
+                <td colspan = "2" align = "center">Subject Marks</td>
+            </tr>
+            <tr>
+                <td>Subject 1</td>
+                <td><input type = "text" name = "S1" /></td>
+            </tr>
+            <tr>
+                <td>Subject 2</td>
+                <td><input type = "text" name = "S2" /></td>
+            </tr>
+            <tr>
+                <td>Subject 3</td>
+                <td><input type = "text" name = "S3" /></td>
+            </tr>            
+            
+
+        </table>
+          <input type = "button"   onclick = "calculate()" value = "Click to calculate result" />
+        <div id="Output">
+          
+        </div>
+</body>
+</html>
